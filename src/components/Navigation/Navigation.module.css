@@ -6,5 +6,8 @@
 }
 
 .activeLink {
+  display: inline-block;
   color: red;
+  padding: 10px;
+  text-decoration: none;
 }

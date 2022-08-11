@@ -9,11 +9,17 @@ const Navigation = () => (
     >
       Home
     </NavLink>
-    <NavLink to="/about" className={css.link} activeClassName={css.activeLink}>
-      About
+    <NavLink
+      to="/movies"
+      className={({ isActive }) => (isActive ? css.link : css.activeLink)}
+    >
+      Movies
     </NavLink>
-    <NavLink to="/autor" className={css.link} activeClassName={css.activeLink}>
-      Autor
+    <NavLink
+      to="/movieId"
+      className={({ isActive }) => (isActive ? css.link : css.activeLink)}
+    >
+      MovieDetails
     </NavLink>
     {/* <NavLink to="*">Autor</NavLink> */}
   </nav>
