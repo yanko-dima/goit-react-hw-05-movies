@@ -5,7 +5,7 @@
   text-decoration: none;
 }
 
-.activeLink {
+.active {
   display: inline-block;
   color: red;
   padding: 10px;
