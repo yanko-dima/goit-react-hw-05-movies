@@ -1,5 +1,6 @@
+import { Outlet } from 'react-router-dom';
 import css from './Container.module.css';
 
-const Container = () => <div className={css.container}>Container</div>;
-
-export default Container;
+export default function Container() {
+  return <section className={css.section}>{/* <Outlet /> */}</section>;
+}

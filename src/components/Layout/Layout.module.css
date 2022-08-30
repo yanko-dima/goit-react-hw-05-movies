@@ -1,0 +1,9 @@
+.section {
+  min-width: 1200px;
+  padding: 20px;
+}
+
+.main {
+  padding-left: 20px;
+  padding-right: 20px;
+}

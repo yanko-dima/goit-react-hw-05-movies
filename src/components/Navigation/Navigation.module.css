@@ -1,13 +1,12 @@
+.nav {
+  display: flex;
+  padding: 20px;
+}
+
 .link {
-  display: inline-block;
-  color: #222;
-  padding: 10px;
   text-decoration: none;
 }
 
-.active {
-  display: inline-block;
-  color: red;
-  padding: 10px;
-  text-decoration: none;
+.link:not(:last-child) {
+  margin-right: 20px;
 }

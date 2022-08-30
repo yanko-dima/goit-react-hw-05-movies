@@ -1,3 +1,7 @@
 export default function Movues() {
-  return <div>Movies</div>;
+  return (
+    <section>
+      <div>Movies</div>
+    </section>
+  );
 }

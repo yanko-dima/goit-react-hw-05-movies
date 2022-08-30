@@ -1,0 +1,7 @@
+.trandingItem {
+  margin-left: 20px;
+}
+
+.trandingItem:not(:last-child) {
+  margin-bottom: 6px;
+}
