@@ -1,10 +1,11 @@
-import TrandingList from 'components/TrandingList';
+import FilmsList from 'components/FilmsList';
+import PageHeading from 'components/PageHeading';
 
 export default function Home() {
   return (
     <div>
-      <h1>Tranding today</h1>
-      <TrandingList />
+      <PageHeading text={'Tranding today'} />
+      <FilmsList />
     </div>
   );
 }

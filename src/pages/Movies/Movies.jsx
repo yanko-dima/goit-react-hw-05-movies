@@ -1,7 +1,11 @@
-export default function Movues() {
+import FilmsList from 'components/FilmsList';
+import SearchForm from 'components/SearchForm';
+
+export default function Movies() {
   return (
-    <section>
-      <div>Movies</div>
-    </section>
+    <>
+      <SearchForm />
+      <FilmsList />
+    </>
   );
 }
