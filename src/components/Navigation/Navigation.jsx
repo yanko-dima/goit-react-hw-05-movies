@@ -14,10 +14,6 @@ const Navigation = () => (
           {text}
         </Link>
       ))}
-      {/* <NavLink to="/">Home</NavLink>
-      <NavLink to="/movies">Movies</NavLink> */}
-      {/* <NavLink to="/movieId">MovieDetails</NavLink> */}
-      {/* <NavLink to="*">Autor</NavLink> */}
     </nav>
   </header>
 );
