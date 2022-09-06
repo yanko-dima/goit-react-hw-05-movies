@@ -1,6 +1,6 @@
-import css from './FilmsItems.module.css';
+import css from './FilmsItem.module.css';
 
-export default function FilmsItems() {
+export default function FilmsItem() {
   return (
     <>
       <li className={css.trandingItem}>Film</li>
