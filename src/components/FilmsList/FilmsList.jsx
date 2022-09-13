@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import FilmsItem from 'components/FilmsItem';
-import css from './FilmsList.module.css';
+// import css from './FilmsList.module.css';
 
 export default function FilmsList() {
   const [films, setFilms] = useState(null);
