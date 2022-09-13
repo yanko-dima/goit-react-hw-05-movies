@@ -7,10 +7,10 @@ import Movies from 'pages/Movies';
 // import MovieDetails from 'pages/MovieDetails';
 
 export const App = () => {
-  const [query, setQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState('');
 
-  const formHandleSubmit = searchQuery => {
-    setQuery(searchQuery);
+  const formHandleSubmit = query => {
+    setSearchQuery(query);
   };
 
   return (

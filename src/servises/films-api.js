@@ -1,11 +1,18 @@
-const BASE_URL = 'https://developers.themoviedb.org/3/';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+
+// const BASE_URL = 'https://developers.themoviedb.org/3/';
 
 export function getTrendingFilms() {
   return 'getTrendingFilms';
 }
 
-export function getSearshFilms() {
+export function getSearshFilms(searchQuery = '') {
   return 'getTrendingFilms';
+}
+
+export default function getMovieDetails() {
+  return 'getMovieDetails';
 }
 
 // /trending/get-trending список самых популярных фильмов на сегодня 20шт$

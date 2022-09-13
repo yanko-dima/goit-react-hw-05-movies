@@ -3,7 +3,7 @@ import FilmsItem from 'components/FilmsItem';
 // import css from './FilmsList.module.css';
 
 export default function FilmsList() {
-  const [films, setFilms] = useState(null);
+  const [films, setFilms] = useState([]);
 
   useEffect(() => {
     if (!films) {
