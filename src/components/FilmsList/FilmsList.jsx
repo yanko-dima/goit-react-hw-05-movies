@@ -2,8 +2,11 @@ import { useState, useEffect } from 'react';
 import FilmsItem from 'components/FilmsItem';
 // import css from './FilmsList.module.css';
 
-export default function FilmsList() {
+export default function FilmsList({ getTrendingFilms }) {
   const [films, setFilms] = useState([]);
+
+  // console.log();
+  getTrendingFilms();
 
   useEffect(() => {
     if (!films) {

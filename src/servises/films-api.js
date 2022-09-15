@@ -1,15 +1,19 @@
-import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-// const BASE_URL = 'https://developers.themoviedb.org/3/';
+const BASE_URL = 'https://developers.themoviedb.org/3/';
+const API_KEY = '31d9568154610e832478c1f68bfe46b9';
 
 export function getTrendingFilms() {
-  return 'getTrendingFilms';
+  return axios
+    .get(`${BASE_URL}tranding/movie/day/?api_key=${API_KEY}&`)
+    .then(response => console.log(response));
 }
 
-export function getSearshFilms(searchQuery = '') {
-  return 'getTrendingFilms';
-}
+// export function getSearshFilms(searchQuery = '', pageSize = 20) {
+//   return axios
+//     .get(`${BASE_URL}tranding/movie/day/?api_key=${API_KEY}&`)
+//     .then(response => console.log(response));
+// }
 
 export default function getMovieDetails() {
   return 'getMovieDetails';
