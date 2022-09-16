@@ -9,7 +9,6 @@ export default function SearchForm({ onSubmit }) {
     e.preventDefault();
 
     onSubmit(query);
-    console.log('SearchForm', query);
     setQuery('');
   };
 

@@ -1,31 +1,16 @@
-import { useState, useEffect } from 'react';
 import FilmsItem from 'components/FilmsItem';
-// import css from './FilmsList.module.css';
+import css from './FilmsList.module.css';
 
-export default function FilmsList({ getTrendingFilms }) {
-  const [films, setFilms] = useState([]);
-
-  // console.log();
-  getTrendingFilms();
-
-  useEffect(() => {
-    if (!films) {
-      return;
-    }
-
-    // setLoading(true);
-  }, []);
-
+export function FilmsList({ films }) {
   return (
     <>
       {films && (
-        <ul>
-          {films.map(film => (
-            <FilmsItem key={film.id} item={film} />
+        <ul className={css.list}>
+          {films.map(({ id, title }) => (
+            <FilmsItem key={id} title={title} />
           ))}
         </ul>
       )}
-      <div>Films</div>
     </>
   );
 }

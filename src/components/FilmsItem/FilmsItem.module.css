@@ -1,7 +1,7 @@
-.trandingItem {
-  margin-left: 20px;
+.item {
+  margin-left: 5px;
 }
 
-.trandingItem:not(:last-child) {
-  margin-bottom: 6px;
+.item:not(:last-child) {
+  margin-bottom: 8px;
 }
