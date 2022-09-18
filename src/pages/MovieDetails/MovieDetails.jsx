@@ -1,22 +1,25 @@
 import { getMovieDetails } from 'servises/films-api';
 import { useEffect, useState } from 'react';
+import { Outlet, useParams, Link } from 'react-router-dom';
 import PageHeading from 'components/PageHeading';
 
 export default function MovieDetails({ movieId }) {
   const [movie, setMovie] = useState();
 
-  useEffect(() => {
-    getMovieDetails(movieId).then(responseMovie => setMovie(responseMovie));
-  }, [movieId]);
+  const { filmId } = useParams();
 
-  console.log('movie: ', movie);
+  console.log(useParams());
+
+  useEffect(() => {
+    getMovieDetails(filmId).then(responseMovie => setMovie(responseMovie));
+  }, [filmId]);
 
   return (
     <>
       <div>
-        <div>{movie.img}</div>
+        {/* <div>{movie.img}</div> */}
         <div>
-          <PageHeading text={movie.title} />
+          <PageHeading text={filmId} />
           <p>Use Score</p>
           <h2>Overview</h2>
           <p>
@@ -26,16 +29,22 @@ export default function MovieDetails({ movieId }) {
             assumenda illum quod.
           </p>
           <h3>Genres</h3>
-          <p>{movie.genres}</p>
+          {/* <p>{movie.genres}</p> */}
         </div>
       </div>
       <div>
         <p>Addition information</p>
         <ul>
-          <li>Cast</li>
-          <li>Reviewe</li>
+          {/* <li>
+            <Link to={`${movie.cast}`}>Cast</Link>
+          </li>
+          <li>
+            <Link to={`${movie.revievs}`}>Rewievs</Link>
+          </li> */}
         </ul>
       </div>
+      <hr />
+      <Outlet />
     </>
   );
 }

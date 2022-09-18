@@ -5,6 +5,7 @@ import Movies from 'pages/Movies';
 import NotFound from 'pages/NotFound';
 import MovieDetails from 'pages/MovieDetails';
 import Credits from 'components/Credits';
+import Reviews from 'components/Reviews';
 
 export const App = () => {
   return (
@@ -17,6 +18,7 @@ export const App = () => {
           </Route>
           <Route path="movies/:filmId" element={<MovieDetails />}>
             <Route path=":credits" element={<Credits />} />
+            <Route path=":rewievs" element={<Reviews />} />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Route>
