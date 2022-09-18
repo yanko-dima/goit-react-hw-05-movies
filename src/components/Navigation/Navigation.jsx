@@ -1,4 +1,4 @@
-import { NavItem } from 'styled';
+import { NavItem } from 'components/Navigation/Navigation.styled';
 import css from './Navigation.module.css';
 
 const navItems = [
