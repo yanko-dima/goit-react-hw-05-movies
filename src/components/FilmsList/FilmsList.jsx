@@ -2,7 +2,6 @@ import FilmsItem from 'components/FilmsItem';
 import css from './FilmsList.module.css';
 
 export function FilmsList({ films }) {
-  console.log(films);
   return (
     <>
       {films && (

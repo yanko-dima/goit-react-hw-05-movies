@@ -21,19 +21,19 @@ export function getSearshFilms(searchQuery) {
 export function getMovieDetails(movieId) {
   return axios
     .get(`${BASE_URL}movie/${movieId}?api_key=${API_KEY}`)
-    .then(response => response.data.results);
+    .then(response => response.data);
 }
 
 // /movies/get-movie-credits запрос информации о актёрском составе
 export function getMovieCredits(movieId) {
   return axios
     .get(`${BASE_URL}movie/${movieId}/credits?api_key=${API_KEY}`)
-    .then(response => response.data.results);
+    .then(response => response.data.cast);
 }
 
 // /movies/get-movie-reviews запрос обзоров для страницы кинофильма
 export function getMovieReviews(movieId) {
   return axios
     .get(`${BASE_URL}movie/${movieId}/reviews?api_key=${API_KEY}`)
-    .then(response => response.data.results);
+    .then(response => console.log(response.data));
 }

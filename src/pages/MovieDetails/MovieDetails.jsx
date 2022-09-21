@@ -2,47 +2,60 @@ import { getMovieDetails } from 'servises/films-api';
 import { useEffect, useState } from 'react';
 import { Outlet, useParams, Link } from 'react-router-dom';
 import PageHeading from 'components/PageHeading';
+// import Cast from 'components/Cast';
 
 export default function MovieDetails({ movieId }) {
-  const [movie, setMovie] = useState();
-
+  const [movie, setMovie] = useState({});
+  // const [genres, setGenres] = useState([]);
+  // const { title, popularity, overview, genres } = movie;
+  // console.log(movie.genres);
   const { filmId } = useParams();
-
-  console.log(useParams());
+  const IMG_BASE_URL = 'https://www.themoviedb.org/t/p/w600_and_h900_bestv2';
 
   useEffect(() => {
     getMovieDetails(filmId).then(responseMovie => setMovie(responseMovie));
+    // console.log(movie);
+    // console.log(genres);
+    // getGenres();
   }, [filmId]);
+
+  const getGenres = () => {
+    if (movie) {
+      movie.genres.map(genre => console.log(genre.name));
+    }
+  };
 
   return (
     <>
-      <div>
-        {/* <div>{movie.img}</div> */}
+      {movie && (
         <div>
-          <PageHeading text={filmId} />
-          <p>Use Score</p>
-          <h2>Overview</h2>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel enim
-            tempora natus accusamus excepturi quia perspiciatis aliquam magnam!
-            Adipisci suscipit nam autem dolorum nisi minima corporis velit
-            assumenda illum quod.
-          </p>
-          <h3>Genres</h3>
-          {/* <p>{movie.genres}</p> */}
+          <img
+            src={`${IMG_BASE_URL}${movie.poster_path}`}
+            alt={movie.title}
+            width="300"
+            height="450"
+          />
+          <div>
+            <PageHeading text={movie.title} />
+            <p>Use Score: {movie.popularity}</p>
+            <h2>Overview</h2>
+            <p>{movie.overview}</p>
+            <h3>Genres</h3>
+            {/* <p>{movie.genres}</p> */}
+          </div>
+
+          <div>
+            <ul>
+              <li>
+                <Link to="cast">Cast</Link>
+              </li>
+              <li>
+                <Link to="reviews">Reviews</Link>
+              </li>
+            </ul>
+          </div>
         </div>
-      </div>
-      <div>
-        <p>Addition information</p>
-        <ul>
-          {/* <li>
-            <Link to={`${movie.cast}`}>Cast</Link>
-          </li>
-          <li>
-            <Link to={`${movie.revievs}`}>Rewievs</Link>
-          </li> */}
-        </ul>
-      </div>
+      )}
       <hr />
       <Outlet />
     </>
