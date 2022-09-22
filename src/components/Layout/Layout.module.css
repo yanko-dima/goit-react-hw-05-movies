@@ -1,9 +1,10 @@
-.section {
-  min-width: 1200px;
-  padding: 20px;
-}
-
 .main {
-  padding-left: 20px;
-  padding-right: 20px;
+  width: 980px;
+  padding: 30px 20px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 3px 3px hsl(0deg 0% 68% / 60%);
+  border-radius: 5px;
 }

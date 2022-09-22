@@ -1,4 +1,12 @@
+.header {
+  margin-bottom: 20px;
+}
+
 .nav {
   display: flex;
   padding: 20px;
+  width: 980px;
+  margin-left: auto;
+  margin-right: auto;
+  border-bottom: 1px solid #000;
 }

@@ -7,7 +7,7 @@ const navItems = [
 ];
 
 const Navigation = () => (
-  <header>
+  <header className={css.header}>
     <nav className={css.nav}>
       {navItems.map(({ href, text }) => (
         <NavItem to={href} key={href}>

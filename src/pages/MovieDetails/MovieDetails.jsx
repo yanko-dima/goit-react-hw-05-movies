@@ -2,6 +2,7 @@ import { getMovieDetails } from 'servises/films-api';
 import { useEffect, useState } from 'react';
 import { Outlet, useParams, Link } from 'react-router-dom';
 import PageHeading from 'components/PageHeading';
+import MovieGenres from 'components/MovieGenres';
 // import Cast from 'components/Cast';
 
 export default function MovieDetails({ movieId }) {
@@ -41,7 +42,7 @@ export default function MovieDetails({ movieId }) {
             <h2>Overview</h2>
             <p>{movie.overview}</p>
             <h3>Genres</h3>
-            {/* <p>{movie.genres}</p> */}
+            <MovieGenres genres={movie.genres} />
           </div>
 
           <div>
