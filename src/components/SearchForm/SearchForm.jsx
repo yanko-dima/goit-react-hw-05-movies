@@ -15,7 +15,12 @@ export default function SearchForm({ onSubmit }) {
 
   return (
     <form className={css.searchBar} action="submit" onSubmit={handleSubmit}>
-      <input type="text" onChange={handleChange} value={query} />
+      <input
+        type="text"
+        placeholder={'Film search'}
+        onChange={handleChange}
+        value={query}
+      />
       <button type="submit">Search</button>
     </form>
   );
