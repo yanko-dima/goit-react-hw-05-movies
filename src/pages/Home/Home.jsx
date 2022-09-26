@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-// import FilmsList from 'components/FilmsList';
 import PageHeading from 'components/PageHeading';
 import { getTrendingFilms } from 'servises/films-api';
 import TrandingFilmsList from 'components/TrandingFilmsList';

@@ -2,10 +2,7 @@ import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const NavItem = styled(NavLink)`
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  colod: #222222;
+  font-weight: 600;
 
   &.active {
     color: red;

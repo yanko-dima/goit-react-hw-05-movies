@@ -1,7 +1,24 @@
 .item {
-  margin-left: 5px;
+  width: 50%;
 }
 
 .item:not(:last-child) {
   margin-bottom: 8px;
+}
+
+.item a {
+  display: flex;
+  text-decoration: none;
+  font-size: 20px;
+  line-height: 1.2;
+  font-weight: 600;
+  color: #222;
+}
+
+.item a:hover {
+  color: skyblue;
+}
+
+.imgWrapper {
+  margin-right: 20px;
 }
