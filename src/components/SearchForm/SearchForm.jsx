@@ -14,14 +14,21 @@ export default function SearchForm({ onSubmit }) {
   };
 
   return (
-    <form className={css.searchBar} action="submit" onSubmit={handleSubmit}>
-      <input
-        type="text"
-        placeholder={'Film search'}
-        onChange={handleChange}
-        value={query}
-      />
-      <button type="submit">Search</button>
-    </form>
+    <div className={css.searchBar}>
+      <form className={css.searchForm} action="submit" onSubmit={handleSubmit}>
+        <input
+          className={css.input}
+          type="text"
+          placeholder={'Search films'}
+          onChange={handleChange}
+          value={query}
+          autoComplete="off"
+          autoFocus
+        />
+        <button className={css.searchBtn} type="submit">
+          Search
+        </button>
+      </form>
+    </div>
   );
 }
