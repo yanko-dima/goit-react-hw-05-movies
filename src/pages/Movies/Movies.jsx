@@ -2,17 +2,23 @@ import { useState, useEffect } from 'react';
 import { getSearshFilms } from 'servises/films-api';
 import FilmsList from 'components/FilmsList';
 import SearchForm from 'components/SearchForm';
+import MoviePlaceholder from 'components/MoviePlaceholder';
+import Loader from 'components/Loader/Loader';
 
 export default function Movies() {
   const [searchQuery, setSearchQuery] = useState('');
   const [films, setFilms] = useState([]);
+  const [status, setStatus] = useState('idle');
 
   useEffect(() => {
     if (!searchQuery) {
       return;
     }
-
-    getSearshFilms(searchQuery).then(responseFilms => setFilms(responseFilms));
+    setStatus('loading');
+    getSearshFilms(searchQuery).then(responseFilms => {
+      setFilms(responseFilms);
+      setStatus('resolved');
+    });
   }, [searchQuery]);
 
   const formHandleSubmit = query => {
@@ -22,7 +28,9 @@ export default function Movies() {
   return (
     <>
       <SearchForm onSubmit={formHandleSubmit} />
-      <FilmsList films={films} />
+      {status === 'idle' && <MoviePlaceholder />}
+      {status === 'loading' && <Loader />}
+      {status === 'resolved' && <FilmsList films={films} />}
     </>
   );
 }

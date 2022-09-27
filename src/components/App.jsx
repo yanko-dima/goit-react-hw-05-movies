@@ -1,4 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 import Layout from 'components/Layout';
 import Home from 'pages/Home';
 import Movies from 'pages/Movies';
@@ -21,6 +22,7 @@ export const App = () => {
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
+      <ToastContainer autoClose={3000} />
     </>
   );
 };

@@ -2,7 +2,6 @@ import TrandingFilmsItem from 'components/TrandingFilmsItem';
 import css from './TrandingFilmsList.module.css';
 
 export default function TrandingFilmsList({ films }) {
-  console.log(films);
   return (
     <>
       {films && (

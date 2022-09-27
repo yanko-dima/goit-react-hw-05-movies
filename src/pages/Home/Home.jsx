@@ -1,35 +1,26 @@
 import { useState, useEffect } from 'react';
-import { TailSpin } from 'react-loader-spinner';
 import PageHeading from 'components/PageHeading';
 import { getTrendingFilms } from 'servises/films-api';
 import TrandingFilmsList from 'components/TrandingFilmsList';
-import css from './Home.module.css';
+import Loader from 'components/Loader';
 
 export default function Home() {
   const [films, setFilms] = useState([]);
+  const [status, setStatus] = useState('ilde');
 
   useEffect(() => {
-    getTrendingFilms().then(responseFilms => setFilms(responseFilms));
+    setStatus('loading');
+    getTrendingFilms().then(responseFilms => {
+      setFilms(responseFilms);
+      setStatus('resolved');
+    });
   }, []);
 
   return (
     <>
-      {!films && (
-        <TailSpin
-          color="#032541"
-          width="50"
-          height="50"
-          ariaLabel="tail-spin-loading"
-          wrapperClass={css.loaderWrapper}
-        />
-      )}
-
-      {films && (
-        <>
-          <PageHeading text={'Tranding today'} />
-          <TrandingFilmsList films={films} />
-        </>
-      )}
+      <PageHeading text={'Tranding today'} />
+      {status === 'loading' && <Loader />}
+      {status === 'resolved' && <TrandingFilmsList films={films} />}
     </>
   );
 }
