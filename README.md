@@ -1,12 +1,9 @@
 Бібдіотеки
 
-- React
+- react
 - axios
 - styled-components
 - react-loader-spinner
-
-Поставити
-
 - react-toastify
 
 Почитати

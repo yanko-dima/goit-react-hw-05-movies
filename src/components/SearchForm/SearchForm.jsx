@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import css from './SearchForm.module.css';
 
 export default function SearchForm({ onSubmit }) {
@@ -8,6 +10,12 @@ export default function SearchForm({ onSubmit }) {
 
   const handleSubmit = e => {
     e.preventDefault();
+
+    if (query.trim() === '') {
+      toast.error('Enter film name!');
+      setQuery('');
+      return;
+    }
 
     onSubmit(query);
     setQuery('');

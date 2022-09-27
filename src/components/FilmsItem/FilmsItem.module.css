@@ -21,4 +21,11 @@
 
 .imgWrapper {
   margin-right: 20px;
+  /* background-color: #ddd; */
+  border-radius: 5px;
+  overflow: hidden;
+  padding: 0;
+}
+.posterImg {
+  display: block;
 }

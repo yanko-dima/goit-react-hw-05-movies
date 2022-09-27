@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { getSearshFilms } from 'servises/films-api';
 import FilmsList from 'components/FilmsList';
 import SearchForm from 'components/SearchForm';
@@ -16,6 +18,10 @@ export default function Movies() {
     }
     setStatus('loading');
     getSearshFilms(searchQuery).then(responseFilms => {
+      console.log(responseFilms.length);
+      if (responseFilms.length === 0) {
+        toast.info('No films for your request');
+      }
       setFilms(responseFilms);
       setStatus('resolved');
     });
