@@ -1,28 +1,10 @@
-import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import { getMovieCredits } from 'servises/films-api';
 import CastItem from 'components/CastItem';
 import css from './Cast.module.css';
 import Loader from 'components/Loader';
+import { useCast } from 'hooks/useCast';
 
 export default function Cast() {
-  const [cast, setCast] = useState([]);
-  const [status, setStatus] = useState('idle');
-
-  const { filmId } = useParams();
-
-  useEffect(() => {
-    setStatus('loading');
-    getMovieCredits(filmId).then(responseCast => {
-      setCast(responseCast);
-      console.log(responseCast);
-      if (responseCast.length === 0) {
-        setStatus('rejected');
-        return;
-      }
-      setStatus('responsed');
-    });
-  }, [filmId]);
+  const { cast, status } = useCast();
 
   return (
     <>

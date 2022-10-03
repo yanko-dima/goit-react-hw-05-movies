@@ -1,10 +1,6 @@
 import { NavItem } from 'components/Navigation/Navigation.styled';
+import { navItems } from 'servises/navItems';
 import css from './Navigation.module.css';
-
-const navItems = [
-  { href: '/', text: 'Home' },
-  { href: '/movies', text: 'Movies' },
-];
 
 const Navigation = () => (
   <header className={css.header}>
