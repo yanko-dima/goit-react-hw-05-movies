@@ -4,6 +4,7 @@ import { Outlet, useParams } from 'react-router-dom';
 import { NavItem } from './MovieDetails.styled';
 import PageHeading from 'components/PageHeading';
 import MovieGenres from 'components/MovieGenres';
+import Loader from 'components/Loader';
 import css from './MovieDetails.module.css';
 
 const movieNavItems = [
@@ -15,6 +16,7 @@ export default function MovieDetails() {
   const [movie, setMovie] = useState({});
   const [filmYear, setFilmYear] = useState('');
   const [voteAverage, setVoteAverage] = useState(0);
+  const [status, setStatus] = useState('idle');
   const { filmId } = useParams();
   const IMG_BASE_URL = 'https://www.themoviedb.org/t/p/w600_and_h900_bestv2';
   let imsSrc = `${IMG_BASE_URL}${movie.poster_path}`;
@@ -26,20 +28,19 @@ export default function MovieDetails() {
   }
 
   useEffect(() => {
+    setStatus('loading');
     getMovieDetails(filmId).then(responseMovie => {
       setMovie(responseMovie);
       setFilmYear(responseMovie.release_date.slice(0, 4));
       setVoteAverage(responseMovie.vote_average * 10);
-      console.log(responseMovie);
+      setStatus('resolved');
     });
   }, [filmId]);
 
   return (
     <>
-      <button type="button" className={css.goBackBtn}>
-        Go back
-      </button>
-      {movie && (
+      {status === 'loading' && <Loader />}
+      {status === 'resolved' && (
         <>
           <div className={css.mainInfo}>
             <img
