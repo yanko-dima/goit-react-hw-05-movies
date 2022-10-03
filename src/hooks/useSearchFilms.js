@@ -13,7 +13,6 @@ export const useSearchFilms = () => {
     }
     setStatus('loading');
     getSearshFilms(searchQuery).then(responseFilms => {
-      console.log(responseFilms.length);
       if (responseFilms.length === 0) {
         toast.info('No films for your request');
       }
