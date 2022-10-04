@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import Layout from 'components/Layout';
 import Home from 'pages/Home';
@@ -9,6 +9,8 @@ import Reviews from 'components/Reviews';
 import Cast from 'components/Cast';
 
 export const App = () => {
+  const { pathname } = useLocation();
+
   return (
     <>
       <Routes>
@@ -16,8 +18,10 @@ export const App = () => {
           <Route index element={<Home />} />
           <Route path="movies" element={<Movies />} />
           <Route path="movies/:filmId" element={<MovieDetails />}>
-            <Route path=":cast" element={<Cast />} />
-            <Route path=":reviews" element={<Reviews />} />
+            <Route
+              path=":movieNav"
+              element={pathname.includes('cast') ? <Cast /> : <Reviews />}
+            />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Route>

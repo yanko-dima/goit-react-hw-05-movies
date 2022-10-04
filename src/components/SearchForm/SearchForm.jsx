@@ -9,7 +9,6 @@ export default function SearchForm({ onSubmit }) {
 
   const [searchParams, setSearchParams] = useSearchParams();
   const searchQuery = searchParams.get('query');
-  console.log(searchQuery);
 
   useEffect(() => {
     if (searchQuery) {

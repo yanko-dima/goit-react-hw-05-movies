@@ -1,0 +1,17 @@
+.reviewItem {
+  padding: 20px;
+  border: 1px solid #f2f2f2;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 10%);
+  border-radius: 5px;
+}
+.reviewItem:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.reviewTitle {
+  margin: 0 0 10px 0;
+}
+
+.reviewContent {
+  margin: 0;
+}

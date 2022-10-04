@@ -1,18 +1,18 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { getMovieCredits } from 'servises/films-api';
+import { getMovieReviews } from 'servises/films-api';
 
-export const useCast = () => {
-  const [cast, setCast] = useState([]);
+export const useReviews = () => {
+  const [reviews, setReviews] = useState([]);
   const [status, setStatus] = useState('idle');
 
   const { filmId } = useParams();
 
   useEffect(() => {
     setStatus('loading');
-    getMovieCredits(filmId).then(responseCast => {
-      setCast(responseCast);
-      if (responseCast.length === 0) {
+    getMovieReviews(filmId).then(responseReviews => {
+      setReviews(responseReviews);
+      if (responseReviews.length === 0) {
         setStatus('rejected');
         return;
       }
@@ -20,5 +20,5 @@ export const useCast = () => {
     });
   }, [filmId]);
 
-  return { cast, status };
+  return { reviews, status };
 };

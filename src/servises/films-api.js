@@ -35,5 +35,5 @@ export function getMovieCredits(movieId) {
 export function getMovieReviews(movieId) {
   return axios
     .get(`${BASE_URL}movie/${movieId}/reviews?api_key=${API_KEY}`)
-    .then(response => console.log(response.data));
+    .then(response => response.data.results);
 }
