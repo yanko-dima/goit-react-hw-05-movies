@@ -11,6 +11,7 @@ export const useSearchFilms = () => {
     if (!searchQuery) {
       return;
     }
+
     setStatus('loading');
     getSearshFilms(searchQuery).then(responseFilms => {
       if (responseFilms.length === 0) {

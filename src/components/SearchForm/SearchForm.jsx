@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import css from './SearchForm.module.css';
@@ -6,7 +7,19 @@ import css from './SearchForm.module.css';
 export default function SearchForm({ onSubmit }) {
   const [query, setQuery] = useState('');
 
-  const handleChange = e => setQuery(e.currentTarget.value);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const searchQuery = searchParams.get('query');
+  console.log(searchQuery);
+
+  useEffect(() => {
+    if (searchQuery) {
+      onSubmit(searchQuery);
+    }
+  }, [searchQuery, onSubmit]);
+
+  const handleChange = e => {
+    setQuery(e.currentTarget.value);
+  };
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -18,6 +31,7 @@ export default function SearchForm({ onSubmit }) {
     }
 
     onSubmit(query);
+    setSearchParams({ query });
     setQuery('');
   };
 
