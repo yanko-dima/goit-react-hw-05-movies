@@ -22,7 +22,7 @@ export const useMovieDetails = () => {
     getMovieDetails(filmId).then(responseMovie => {
       setMovie(responseMovie);
       setFilmYear(responseMovie.release_date.slice(0, 4));
-      setVoteAverage(responseMovie.vote_average * 10);
+      setVoteAverage(Math.round(responseMovie.vote_average * 10));
       setStatus('resolved');
     });
   }, [filmId]);

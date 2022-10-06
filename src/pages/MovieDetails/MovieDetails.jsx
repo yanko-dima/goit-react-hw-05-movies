@@ -1,4 +1,4 @@
-import { Outlet } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 import { NavItem } from './MovieDetails.styled';
 import PageHeading from 'components/PageHeading';
 import MovieGenres from 'components/MovieGenres';
@@ -6,15 +6,19 @@ import Loader from 'components/Loader';
 import { useMovieDetails } from 'hooks/useMovieDetails';
 import { movieNavItems } from 'servises/movieNavItems';
 import css from './MovieDetails.module.css';
+import BackButton from 'components/BackButton';
 
 export default function MovieDetails() {
   const { filmYear, voteAverage, status, imsSrc, movie } = useMovieDetails();
+  const location = useLocation();
+  const { pathname, search } = location.state.from;
 
   return (
     <>
       {status === 'loading' && <Loader />}
       {status === 'resolved' && (
         <>
+          <BackButton pathname={pathname} search={search} />
           <div className={css.mainInfo}>
             <img
               className={css.movieImg}

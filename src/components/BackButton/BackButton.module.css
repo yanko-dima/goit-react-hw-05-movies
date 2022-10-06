@@ -1,0 +1,29 @@
+.backBtn {
+  display: flex;
+  align-items: center;
+  height: 30px;
+  font-size: 16px;
+  line-height: 1.2;
+  font-weight: 600;
+  color: #ffffff;
+  cursor: pointer;
+  background-color: #59a08f;
+  border: 0;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  padding: 0 15px;
+}
+
+.backBtn:hover {
+  background-color: skyblue;
+}
+
+.backBtn a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.btnIcon {
+  font-size: 24px;
+  margin-right: 7px;
+}
