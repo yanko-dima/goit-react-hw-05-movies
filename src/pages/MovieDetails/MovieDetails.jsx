@@ -11,14 +11,13 @@ import BackButton from 'components/BackButton';
 export default function MovieDetails() {
   const { filmYear, voteAverage, status, imsSrc, movie } = useMovieDetails();
   const location = useLocation();
-  const { pathname, search } = location.state.from;
 
   return (
     <>
       {status === 'loading' && <Loader />}
       {status === 'resolved' && (
         <>
-          <BackButton pathname={pathname} search={search} />
+          <BackButton location={location} />
           <div className={css.mainInfo}>
             <img
               className={css.movieImg}
@@ -41,7 +40,11 @@ export default function MovieDetails() {
             <h4 className={css.h4}>Addition information</h4>
             <nav className={css.nav}>
               {movieNavItems.map(({ href, text }) => (
-                <NavItem to={href} key={href}>
+                <NavItem
+                  to={href}
+                  key={href}
+                  state={{ from: location.state.from }}
+                >
                   {text}
                 </NavItem>
               ))}
