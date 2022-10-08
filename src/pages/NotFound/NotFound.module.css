@@ -1,0 +1,29 @@
+.notFound {
+  display: flex;
+}
+
+.notFoundImg {
+  width: 440px;
+  height: 440px;
+}
+
+.notFoundContent {
+  padding-top: 140px;
+  text-align: center;
+  max-width: 400px;
+}
+
+.notFoundContent h1 {
+  margin-bottom: 30px;
+}
+
+.notFoundContent p {
+  font-size: 16px;
+  line-height: 1.4;
+  font-weight: 500;
+  margin: 0;
+}
+
+.notFoundContent p:not(:last-child) {
+  margin-bottom: 20px;
+}
