@@ -3,8 +3,6 @@ import css from './BackButton.module.css';
 
 export default function BackButton({ location }) {
   const backLinkHref = location.state?.from ?? '/movies';
-  console.log(backLinkHref);
-  console.log(location);
 
   return (
     <>

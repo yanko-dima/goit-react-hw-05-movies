@@ -6,7 +6,8 @@ export const useCast = () => {
   const [cast, setCast] = useState([]);
   const [status, setStatus] = useState('idle');
 
-  const { filmId } = useParams();
+  const { slug } = useParams();
+  const filmId = slug.match(/[a-z0-9/]+$/)[0];
 
   useEffect(() => {
     setStatus('loading');
