@@ -1,12 +1,14 @@
+import { lazy } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import Layout from 'components/Layout';
-import Home from 'pages/Home';
-import Movies from 'pages/Movies';
-import NotFound from 'pages/NotFound';
-import MovieDetails from 'pages/MovieDetails';
-import Reviews from 'components/Reviews';
-import Cast from 'components/Cast';
+
+const Home = lazy(() => import('pages/Home'));
+const Movies = lazy(() => import('pages/Movies'));
+const MovieDetails = lazy(() => import('pages/MovieDetails'));
+const Reviews = lazy(() => import('components/Reviews'));
+const Cast = lazy(() => import('components/Cast'));
+const NotFound = lazy(() => import('pages/NotFound'));
 
 export const App = () => {
   const { pathname } = useLocation();

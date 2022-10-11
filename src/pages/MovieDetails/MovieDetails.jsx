@@ -7,6 +7,7 @@ import { useMovieDetails } from 'hooks/useMovieDetails';
 import { movieNavItems } from 'servises/movieNavItems';
 import css from './MovieDetails.module.css';
 import BackButton from 'components/BackButton';
+import { Suspense } from 'react';
 
 export default function MovieDetails() {
   const { filmYear, voteAverage, status, imsSrc, movie } = useMovieDetails();
@@ -53,7 +54,9 @@ export default function MovieDetails() {
         </>
       )}
 
-      <Outlet />
+      <Suspense fallback={<Loader />}>
+        <Outlet />
+      </Suspense>
     </>
   );
 }
