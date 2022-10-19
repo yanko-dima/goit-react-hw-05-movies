@@ -20,10 +20,12 @@ export const App = () => {
           <Route index element={<Home />} />
           <Route path="movies" element={<Movies />} />
           <Route path="movies/:slug" element={<MovieDetails />}>
-            <Route
-              path=":movieNav"
-              element={pathname.includes('cast') ? <Cast /> : <Reviews />}
-            />
+            {pathname.includes('cast') && (
+              <Route path=":movieNav" element={<Cast />} />
+            )}
+            {pathname.includes('reviews') && (
+              <Route path=":movieNav" element={<Reviews />} />
+            )}
           </Route>
           <Route path="*" element={<NotFound />} />
         </Route>

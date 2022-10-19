@@ -18,7 +18,7 @@ export const useMovieDetails = () => {
     imsSrc = NO_IMG;
   }
 
-  console.log(slug.match(/[a-z0-9/]+$/)[0]);
+  // console.log(slug.match(/[a-z0-9/]+$/)[0]);
 
   useEffect(() => {
     setStatus('loading');
