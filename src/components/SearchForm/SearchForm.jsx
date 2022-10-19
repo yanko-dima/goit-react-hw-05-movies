@@ -12,6 +12,7 @@ export default function SearchForm({ onSubmit }) {
 
   useEffect(() => {
     if (searchQuery) {
+      setQuery(searchQuery);
       onSubmit(searchQuery);
     }
   }, [searchQuery, onSubmit]);
@@ -42,6 +43,7 @@ export default function SearchForm({ onSubmit }) {
           type="text"
           placeholder={'Search films'}
           onChange={handleChange}
+          // {!query ? value={searchQuery} : value={query}}
           value={query}
           autoComplete="off"
           autoFocus
